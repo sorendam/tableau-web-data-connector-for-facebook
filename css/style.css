@@ -1,0 +1,47 @@
+html, body {
+    height: 100%;
+}
+
+.vertical-center {
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+	color : #000;
+}
+
+
+.text-vertical-center {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+h1 {
+    line-height: 1.4;
+}
+
+h1 span {
+    font-weight: lighter;
+    display: block;
+    font-size: 2.5rem;
+}
+
+img.fb-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 1rem;
+}
+
+span.fb-name {
+    font-weight: normal;
+}
+
+div#message {
+    margin: 0 0 2rem;
+}
