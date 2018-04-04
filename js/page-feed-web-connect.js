@@ -46,6 +46,7 @@ var insightsMetrics = [
     'post_video_view_time_organic'
 ];
 var metrics = [
+    'reactions.limit(0).summary(true)',
     'likes.limit(1).summary(true)',
     'comments.limit(1).summary(true).filter(toplevel)',
     'message',
@@ -201,6 +202,10 @@ myConnector.getSchema = function(schemaCallback) {
     }, {
         id: "post_shares",
         alias: "Post Shares",
+        dataType: tableau.dataTypeEnum.int
+    }, {
+        id: "post_reactions",
+        alias: "Post Reactions",
         dataType: tableau.dataTypeEnum.int
     }, {
         id: "post_likes",
@@ -466,6 +471,13 @@ function getFbFeed(table, doneCallback, next_page, pagesCount, pagesInfo, curren
                     if (data[ii].likes) {
                         totalLikes = data[ii].likes.summary.total_count;
                     }
+
+                    //get total reactions
+                    var totalReactions;
+                    if (data[ii].reactions) {
+                        totalReactions = data[ii].reactions.summary.total_count;
+                    }
+
                     var page_ids = Object.getOwnPropertyNames(page_response);
                     var currentPage = page_response[page_ids[0]];
                     var postInsightsData = {
@@ -499,6 +511,7 @@ function getFbFeed(table, doneCallback, next_page, pagesCount, pagesInfo, curren
                         'from_id': ifexists(data[ii], 'from.id'),
                         'from_name': ifexists(data[ii], 'from.name'),
                         'post_shares': ifexists(data[ii], 'shares.count'),
+                        'post_reactions': totalReactions,                        
                         'post_likes': totalLikes,
                         'post_comments': totalComments,
                         'admin_creator': ifexists(data[ii], 'admin_creator.name'),
