@@ -13,13 +13,12 @@ var insightsMetrics = [
     'post_impressions_organic_unique',
     'post_impressions_viral',
     'post_impressions_viral_unique',
-    'post_consumptions',
-    'post_consumptions_unique',
+    'post_clicks',
+    'post_clicks_unique',
     'post_engaged_users',
     'post_negative_feedback',
     'post_negative_feedback_unique',
     'post_engaged_fan',
-    'post_fan_reach',
     'post_video_avg_time_watched',
     'post_video_complete_views_organic',
     'post_video_complete_views_organic_unique',
@@ -270,12 +269,12 @@ myConnector.getSchema = function(schemaCallback) {
             dataType: tableau.dataTypeEnum.int
         },
         {
-            id: "post_consumptions",
-            alias: "Post Consumptions",
+            id: "post_clicks",
+            alias: "Post Clicks",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "post_consumptions_unique",
-            alias: "Post Consumptions Unique",
+            id: "post_clicks_unique",
+            alias: "Post Clicks Unique",
             dataType: tableau.dataTypeEnum.int
         }, {
             id: "post_engaged_users",
@@ -294,11 +293,6 @@ myConnector.getSchema = function(schemaCallback) {
             alias: "Post Engaged Fan",
             dataType: tableau.dataTypeEnum.int
         }, {
-            id: "post_fan_reach",
-            alias: "Post Fan Reach",
-            dataType: tableau.dataTypeEnum.int
-        },
-        {
             id: "post_video_avg_time_watched",
             alias: "Post Video Avg Time Watched",
             dataType: tableau.dataTypeEnum.int

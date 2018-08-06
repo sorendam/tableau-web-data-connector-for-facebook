@@ -17,7 +17,7 @@ function ifexists(data, property) {
 function buildUrl(pageCount, page_response) {
     var page_ids = Object.getOwnPropertyNames(page_response);
     var next_page = '/' + page_response[page_ids[pageCount - 1]].id + '/insights/' +
-        'page_stories,' +
+        'page_content_activity,' +
         'page_impressions,' +
         'page_impressions_unique,' +
         'page_impressions_paid,' +
@@ -95,8 +95,8 @@ myConnector.getSchema = function(schemaCallback) {
             dataType: tableau.dataTypeEnum.date
         },
         {
-            id: "page_stories",
-            alias: "Page Stories",
+            id: "page_content_activity",
+            alias: "Page Content Activity",
             description: "The number of stories created about your Page (Stories)",
             dataType: tableau.dataTypeEnum.int
         },
